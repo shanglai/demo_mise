@@ -1,0 +1,217 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico">
+
+    <title>Tienda</title>
+
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/bootstrap-theme.min.css" rel="stylesheet">
+    <link href="../../assets/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
+    <link href="theme.css" rel="stylesheet">
+
+    <script src="js/ie-emulation-modes-warning.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    
+
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
+      function drawChart() {
+
+        var data = google.visualization.arrayToDataTable([
+		['Categor&iacute;a','Cantidad'],
+		['Furniture',1724],
+		['Office Supplies',4610],
+		['Technology',2065]
+        ]);
+
+        var options = {
+          title: 'Unidades vendidas por Categoria'
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+
+        chart.draw(data, options);
+      }
+    </script>
+
+
+<script type="text/javascript">
+      google.charts.load("current", {packages:["corechart"]});
+      google.charts.setOnLoadCallback(drawChart);
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+		['['SubCategoria','Cantidad'],
+		['Appliances',  434],
+		['Binders and Binder Accessories',  915],
+		['Bookcases',  189],
+		['Chairs & Chairmats',  386],
+		['Computer Peripherals',  758],
+		['Copiers and Fax',   87],
+		['Envelopes',  246],
+		['Labels',  288],
+		['Office Furnishings',  788],
+		['Office Machines',  337],
+		['Paper', 1225],
+		['Pens & Art Supplies',  633],
+		['Rubber Bands',  179],
+		['Scissors, Rulers and Trimmers',  144],
+		['Storage & Organization',  546],
+		['Tables',  361],
+		['Telephones and Communication',  883]
+        ]);
+
+        var options = {
+          title: 'My Daily Activities',
+          pieHole: 0.4,
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('donutchart'));
+        chart.draw(data, options);
+      }
+    </script>
+
+
+    
+  </head>
+
+  <body role="document">
+
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="index.html">Demo Tiemda</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li><a href="demo01.html">Demo01</a></li>
+            <li><a href="demo02.html">Demo02</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container theme-showcase" role="main">
+
+      <!-- Main jumbotron for a primary marketing message or call to action -->
+      <div class="jumbotron">
+        <h2>Dashboard de tienda</h2>
+      </div>
+      <div>
+        <h4>Prototipo de Dashboard - Anal&iacute;tica Descriptiva</h4>
+      </div>
+
+<div id="piechart" style="width: 600px; height: 500px;"></div>
+<div id="donutchart" style="width: 600px; height: 500px;"></div>
+
+  <div>
+
+  </div>
+
+
+
+
+
+
+
+
+	<div ng-app="appSched" ng-controller="ctrlSched"> 
+		<form>
+			<fieldset>
+				<legend>Nueva Asignaci&oacute;n de Perfil para B&uacute;squeda:</legend>
+                                <p class="fieldsetAsigna">
+                                        <label>N&uacute;mero de Requi:</label>
+                                        <input type="number" id="requi" name="requi" ng-model="data.requi"></input>
+                                </p>
+				<p class="fieldsetAsigna">
+					<label>Nombre de Vacante:</label>
+					<input type="text" id="vacante" name="vacante" ng-model="data.vacante"></input>
+				</p>
+				<p class="fieldsetAsigna">
+					<label>Viables Requeridos:</label>
+					<input type="number" id="viables" name="viables" ng-model="data.viables"></input>
+				</p>
+				<p class="fieldsetAsigna">
+					<label>Asignar a:</label>
+					<select name="reclutador" id="reclutador" ng-model="data.reclutador">
+						<option ng-repeat="x in myData" value="{{ x.id }}">{{ x.id + ' - ' + x.nombre }}</option>
+					</select>
+				</p>
+
+                                <p class="fieldsetAsigna">
+                                        <label>Establecer fecha/hora de entrega:</label>
+                                        <input type="datetime-local" name="fechaAsigna" id="fechaAsigna" ng-model="data.fechaAsigna" ng-init="2016-05-07T18:00:00.000Z">
+                                </p>
+				Reporte:<br>
+                                <tt>Vacante= {{ data.vacante }}</tt>
+                                <tt>Viables= {{ data.viables }}</tt>
+                                <tt>Reclutador= {{ data.reclutador }}</tt>
+                                <tt>Fecha/Hora L&iacute;mite= {{ data.fechaAsigna }}</tt>
+				<p class="fieldsetAsigna">
+					<button type="button" class="btn btn-primary">Asignar</button>
+				</p>
+			</fieldset>
+		</form>
+	</div>
+	
+	
+      <div class="page-header">
+        <h1>Buttons</h1>
+      </div>
+      <p>
+        <button type="button" class="btn btn-lg btn-default" onclick="a()">Default</button>
+	<script>function a() {alert('asd');}</script>
+        <button type="button" class="btn btn-lg btn-primary">Primary</button>
+        <button type="button" class="btn btn-lg btn-success">Success</button>
+        <button type="button" class="btn btn-lg btn-info">Info</button>
+        <button type="button" class="btn btn-lg btn-warning">Warning</button>
+        <button type="button" class="btn btn-lg btn-danger">Danger</button>
+        <button type="button" class="btn btn-lg btn-link">Link</button>
+      </p>
+      <p>
+        <button type="button" class="btn btn-default">Default</button>
+        <button type="button" class="btn btn-primary">Primary</button>
+        <button type="button" class="btn btn-success">Success</button>
+        <button type="button" class="btn btn-info">Info</button>
+        <button type="button" class="btn btn-warning">Warning</button>
+        <button type="button" class="btn btn-danger">Danger</button>
+        <button type="button" class="btn btn-link">Link</button>
+      </p>
+      <p>
+        <button type="button" class="btn btn-sm btn-default">Default</button>
+        <button type="button" class="btn btn-sm btn-primary">Primary</button>
+        <button type="button" class="btn btn-sm btn-success">Success</button>
+        <button type="button" class="btn btn-sm btn-info">Info</button>
+        <button type="button" class="btn btn-sm btn-warning">Warning</button>
+        <button type="button" class="btn btn-sm btn-danger">Danger</button>
+        <button type="button" class="btn btn-sm btn-link">Link</button>
+      </p>
+      <p>
+        <button type="button" class="btn btn-xs btn-default">Default</button>
+        <button type="button" class="btn btn-xs btn-primary">Primary</button>
+        <button type="button" class="btn btn-xs btn-success">Success</button>
+        <button type="button" class="btn btn-xs btn-info">Info</button>
+        <button type="button" class="btn btn-xs btn-warning">Warning</button>
+        <button type="button" class="btn btn-xs btn-danger">Danger</button>
+        <button type="button" class="btn btn-xs btn-link">Link</button>
+      </p>
+
+  </body>
+</html>
+

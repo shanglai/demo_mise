@@ -1,0 +1,37 @@
+<html>
+  <head>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawSeriesChart);
+
+    function drawSeriesChart() {
+
+      var data = google.visualization.arrayToDataTable([
+['ID','Ventas','Cantidad','Clientes','Tam'],
+['Atlantic', 2014248.2,    28068,        240,        240],
+['Northwest Territories',  800847.3,     9722,         62,         62],
+['Nunavut',  116376.5,     1962,         38,         38],
+['Ontario', 3063212.5,    46685,        281,        281],
+['Prarie', 2837304.6,    43732,        251,        251],
+['Quebec', 1510195.1,    19589,        170,        170],
+['West', 3597549.3,    51423,        311,        311],
+['Yukon',  975867.4,    13596,        107,        107]
+      ]);
+
+      var options = {
+        title: 'Correlacion entre Ventas y Cantidad (unidades vendidas) por Region',
+        hAxis: {title: 'Ventas'},
+        vAxis: {title: 'Cantidad'},
+        bubble: {textStyle: {fontSize: 11}}
+      };
+
+      var chart = new google.visualization.BubbleChart(document.getElementById('series_chart_div'));
+      chart.draw(data, options);
+    }
+    </script>
+  </head>
+  <body>
+    <div id="series_chart_div" style="width: 900px; height: 500px;"></div>
+  </body>
+</html>

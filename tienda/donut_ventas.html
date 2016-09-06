@@ -1,0 +1,42 @@
+<html>
+  <head>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load("current", {packages:["corechart"]});
+      google.charts.setOnLoadCallback(drawChart);
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+		['ProductSubCategory','Ventas'],
+		['Appliances',  736.99154],
+		['Binders and Binder Accessories', 1022.95759],
+		['Bookcases',  822.65204],
+		['Chairs & Chairmats', 1761.83655],
+		['Computer Peripherals',  795.87594],
+		['Copiers and Fax', 1130.36130],
+		['Envelopes',  174.08580],
+		['Labels',   38.98155],
+		['Office Furnishings',  698.09381],
+		['Office Machines', 2168.69714],
+		['Paper',  446.45286],
+		['Pens & Art Supplies',  167.10722],
+		['Rubber Bands',   15.00663],
+		['Scissors, Rulers and Trimmers',   80.99631],
+		['Storage & Organization', 1070.18260],
+		['Tables', 1896.00814],
+		['Telephones and Communication', 1889.31380]
+        ]);
+
+        var options = {
+          title: 'Venta (Miles) por SubCategoria',
+          pieHole: 0.4,
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('donutchart'));
+        chart.draw(data, options);
+      }
+    </script>
+  </head>
+  <body>
+    <div id="donutchart" style="width: 500px; height: 500px;"></div>
+  </body>
+</html>

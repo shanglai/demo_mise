@@ -1,0 +1,41 @@
+<html>
+  <head>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['geochart']});
+      google.charts.setOnLoadCallback(drawRegionsMap);
+
+      function drawRegionsMap() {
+
+        var data = google.visualization.arrayToDataTable([
+		['Region','Ventas'],
+		['Newfoundland and Labrador', 2014248.2],
+		['The Maritimes', 2014248.2],
+		['Northwest Territories',  800847.3],
+		['Nunavut',  116376.5],
+		['Ontario', 3063212.5],
+		['Alberta', 2837304.6],
+		['Saskatchewan', 2837304.6],
+		['Manitoba', 2837304.6],
+		['Quebec', 1510195.1],
+		['British Columbia', 3597549.3],
+		['Yukon',  975867.4]
+        ]);
+
+        var options = {
+	title: 'Distribucion de Ventas por Region',
+	region:'CA',
+	resolution:'provinces'
+	};
+
+        var chart = new google.visualization.GeoChart(document.getElementById('regions_div'));
+
+        chart.draw(data, options);
+      }
+    </script>
+  </head>
+  <body>
+    <div id="regions_div" style="width: 900px; height: 500px;"></div>
+  </body>
+</html>

@@ -1,0 +1,53 @@
+<html>
+  <head>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['bar']});
+      google.charts.setOnLoadCallback(drawStuff);
+
+      function drawStuff() {
+        var data = new google.visualization.arrayToDataTable([
+['Producto','Ventas'],
+['Global Troy™ Executive Leather Low-Back ',275941.52],
+['Polycom ViewStation™ ISDN Videoconferenc',255303.97],
+['Canon PC940 Copier',210910.68],
+['Riverside Palais Royal Lawyers Bookcase,',206494.13],
+['Hewlett Packard LaserJet 3310 Copier',194880.35],
+['Bretford CR8500 Series Meeting Room Furn',147412.212],
+['Sharp AL-1530CS Digital Copier',130046.81],
+['Hewlett-Packard cp1700 [D, PS] Series Co',128100.43],
+['GBC DocuBind 200 Manual Binding Machine',120342.74],
+['Canon imageCLASS 2200 Advanced Copier',114173.41],
+['Canon PC1060 Personal Laser Copier',112759.31],
+['Hewlett-Packard Deskjet 1220Cse Color In',112417.21],
+['Canon PC1080F Personal Copier',112266.58],
+['Bretford CR4500 Series Slim Rectangular ',111220.84],
+['Smead Adjustable Mobile File Trolley wit',109416.56],
+['SAFCO PlanMaster Heigh-Adjustable Drafti',109231.39],
+['Fellowes PB300 Plastic Comb Binding Mach',106908.29],
+['Chromcraft Bull-Nose Wood 48\' x 96\' Rect',106628.994],
+['BoxOffice By Design Rectangular and Half',104483.142],
+['Hon 94000 Series Round Tables',102005.838]
+
+
+        ]);
+
+        var options = {
+          title: 'Top de Productos Vendidos',
+          width: 900,
+          legend: { position: 'none' },
+          chart: { title: 'Top de Productos Vendidos',
+                   subtitle: 'Total de Ventas' },
+          bars: 'horizontal', // Required for Material Bar Charts.
+          //bar: { groupWidth: "90%" }
+        };
+
+        var chart = new google.charts.Bar(document.getElementById('top_x_div'));
+        chart.draw(data, options);
+      };
+    </script>
+  </head>
+  <body>
+    <div id="top_x_div" style="width: 900px; height: 500px;"></div>
+  </body>
+</html>

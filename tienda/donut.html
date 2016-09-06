@@ -1,0 +1,42 @@
+<html>
+  <head>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load("current", {packages:["corechart"]});
+      google.charts.setOnLoadCallback(drawChart);
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+		['SubCategoria','Cantidad'],
+		['Appliances',  434],
+		['Binders and Binder Accessories',  915],
+		['Bookcases',  189],
+		['Chairs & Chairmats',  386],
+		['Computer Peripherals',  758],
+		['Copiers and Fax',   87],
+		['Envelopes',  246],
+		['Labels',  288],
+		['Office Furnishings',  788],
+		['Office Machines',  337],
+		['Paper', 1225],
+		['Pens & Art Supplies',  633],
+		['Rubber Bands',  179],
+		['Scissors, Rulers and Trimmers',  144],
+		['Storage & Organization',  546],
+		['Tables',  361],
+		['Telephones and Communication',  883]
+        ]);
+
+        var options = {
+          title: 'Venta (# Ordenes) por SubCategoria',
+          pieHole: 0.4,
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('donutchart'));
+        chart.draw(data, options);
+      }
+    </script>
+  </head>
+  <body>
+    <div id="donutchart" style="width: 500px; height: 500px;"></div>
+  </body>
+</html>
